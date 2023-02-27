@@ -45,5 +45,13 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+    <key>NSCameraUsageDescription</key>
+    <string>Privacy - Camera usage Description</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>Privacy - Photo Library addons description </string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Privacy - Photo Library usage description </string>
+    <key>NSFaceIDUsageDescription</key>
+    <string>For an easier and faster log in.</string>
 </dict>
 </plist>
