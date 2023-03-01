@@ -1,43 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Camera, CameraResultType } from '@capacitor/camera';
-import { BiometryType, NativeBiometric } from 'capacitor-native-biometric';
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss'],
 })
-export class Tab3Page implements OnInit {
+export class Tab3Page {
   imageUrl: string = '';
-  isFaceID: boolean = false;
-  verified: boolean = false;
 
   constructor(private sanitizer: DomSanitizer) {}
-
-  ngOnInit(): void {
-    this.doNativeAuth();
-  }
-
-  async doNativeAuth() {
-    const result = await NativeBiometric.isAvailable();
-
-    if (!result.isAvailable) return;
-
-    this.isFaceID = result.biometryType == BiometryType.FACE_ID;
-
-    const verified = await NativeBiometric.verifyIdentity({
-      reason: 'For easy log in',
-      title: 'Log in',
-      subtitle: 'Maybe add subtitle here?',
-      description: 'Maybe a description too?',
-    })
-      .then(() => true)
-      .catch(() => false);
-
-    if (!verified) return;
-
-    this.verified = true;
-  }
 
   async doOpenCamera() {
     console.log('Opening camera');

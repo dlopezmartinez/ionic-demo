@@ -11,20 +11,20 @@
     </ion-toolbar>
   </ion-header>
 
-  <main *ngIf="verified" class="tab3__layout">
+  <main class="tab3__layout">
     <section class="tab3_buttons-layout">
       <ion-icon
         size="large"
         name="camera-outline"
         (click)="doOpenCamera()"
       ></ion-icon>
-      <ion-label>Camera</ion-label>
+      <ion-label>Tomar una foto</ion-label>
       <ion-icon
         name="camera-reverse-outline"
         size="large"
         (click)='imageUrl = ""'
       ></ion-icon>
-      <ion-label>Remove image</ion-label>
+      <ion-label>Remover foto</ion-label>
     </section>
     <img
       *ngIf="imageUrl; else blankImage"
@@ -36,8 +36,11 @@
   </main>
 
   <ng-template #blankImage>
-    <div class="tab3__image-placeholder">
-      <p>Take a picture to display in here</p>
+    <div
+      class="tab3__image-placeholder"
+      style="display: grid; place-items: center"
+    >
+      <p>Selecciona una foto para que aparezca aquí</p>
     </div>
   </ng-template>
 </ion-content>
